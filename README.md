@@ -1,70 +1,102 @@
 # n8n-to-claude-skill
 
-Instala en tu proyecto una "Agent Skill" lista para usar: un archivo de instrucciones
-que le enseña a tu agente de IA (Claude, Cursor, Copilot...) cómo ayudarte a migrar
-tus automatizaciones de n8n a código real.
+Una Agent Skill que enseña a Claude a ayudarte a migrar tus workflows de n8n (o Make) a código real. Compatible con Claude Code, Claude.ai y la API de Claude.
 
 ---
 
 ## ¿Qué problema resuelve?
 
-Cuando quieres migrar tus workflows de n8n a código, cada vez que abres una conversación
-con tu agente de IA tienes que re-explicar lo mismo: de dónde vienes, qué es n8n, qué nodos
-usas, cómo quieres que te hable...
+Cuando quieres migrar tus workflows de n8n a código, cada vez que abres una conversación con Claude tienes que re-explicar lo mismo: de dónde vienes, qué es n8n, qué nodos usas, cómo quieres que te hable...
 
-Esta skill lo resuelve. Instala un archivo con:
+Esta skill lo resuelve. Al instalarla, Claude sabe automáticamente:
 
-- **Instrucciones permanentes** para el agente: cómo hablar con alguien que viene de n8n,
-  qué nivel técnico asumir, cómo generar el código
-- **Tabla de traducción** de nodos n8n a su equivalente en código (Schedule Trigger → cron,
-  HTTP Request → fetch, Text Classifier → Claude API...)
-- **Las 4 arquitecturas** posibles para migrar, con analogías de n8n para entenderlas
-- **Reglas de seguridad** automáticas: si el agente detecta API keys expuestas o workflows
-  en producción, sabe cómo actuar
-- **Secciones para personalizar** con los datos de TU proyecto
-
----
-
-## Requisitos
-
-- Node.js `>= 16` — [Descargar aquí](https://nodejs.org)
+- **Cómo hablar contigo** — Asume que vienes del mundo no-code, explica la jerga técnica, y usa analogías con n8n
+- **Cómo traducir nodos** — Tabla completa de equivalencias: Schedule Trigger → cron, HTTP Request → fetch, Text Classifier → Claude API...
+- **Qué arquitectura recomendar** — 4 opciones explicadas con analogías de n8n (script, skill, módulo web, Mission Control)
+- **Cómo protegerte** — Detecta API keys expuestas, workflows en producción, y recomienda migración paralela
+- **Cómo analizar tus workflows** — Pega un JSON de n8n y obtén un análisis completo con plan de migración
 
 ---
 
 ## Instalación
 
-Ejecuta este comando en la raíz del proyecto donde quieras instalar la skill:
+### En Claude Code
 
 ```bash
-npx angelapaia/n8n-to-claude-skill
+/plugin marketplace add angelapaia/n8n-to-claude-skill
 ```
 
-Eso es todo. No instala nada en tu sistema, no modifica ningún archivo existente.
-
----
-
-## ¿Qué genera?
+Luego instala el plugin:
 
 ```
-tu-proyecto/
-└── .skills/
-    └── n8n-migration-skill.md   ← La skill, lista para usar y personalizar
+/plugin install n8n-to-claude@n8n-to-claude
 ```
+
+### En Claude.ai
+
+1. Ve a **Settings > Skills**
+2. Sube el archivo `skills/n8n-to-claude/SKILL.md` de este repositorio
 
 ---
 
 ## Cómo usarla
 
-1. Abre `.skills/n8n-migration-skill.md`
-2. Rellena las secciones al final del archivo con la información de tu proyecto:
-   - Descripción de tu proyecto
-   - Stack tecnológico al que migras
-   - Lista de workflows de n8n que quieres migrar
-3. Al iniciar una sesión con tu agente de IA, adjunta este archivo o pega su contenido
-4. Tu agente leerá las instrucciones y trabajará con ese contexto desde el primer mensaje
+Una vez instalada, la skill se activa automáticamente cuando:
+
+- **Pegas un JSON** de un workflow de n8n → Análisis completo
+- **Pegas varios JSONs** → Análisis portfolio con roadmap de migración priorizado
+- **Describes un workflow** sin JSON → Entrevista guiada de 6 preguntas
+- **Pides aprender** → Modo aprendizaje con explicaciones desde cero
+- **Pides implementar** → Modo construcción con código listo para ejecutar
+
+### Ejemplo
+
+Simplemente pega tu JSON de n8n y la skill hace el resto:
+
+```
+Aquí tienes mi workflow de n8n: { "nodes": [...], "connections": {...} }
+```
+
+Claude te devolverá:
+- Qué hace el workflow en lenguaje simple
+- Tabla de traducción de nodos a código
+- Arquitectura recomendada
+- Mejoras detectadas (seguridad, eficiencia, fiabilidad)
+- Opciones para implementarlo
+
+---
+
+## ¿Qué contiene la skill?
+
+| Sección | Para qué sirve |
+|---|---|
+| Detección de modo | Detecta si pegas 1 JSON, varios, o describes sin JSON |
+| Tabla de traducción | 20+ nodos de n8n mapeados a equivalentes en código |
+| Árbol de arquitectura | Decide qué tipo de proyecto crear (script, skill, web app, Mission Control) |
+| Opciones de deploy | Local (pm2), Vercel Pro, Vercel Hobby + cron externo |
+| Detección de mejoras | Seguridad (🔴), eficiencia (🟡), simplicidad (🟢) |
+| Migración paralela | Estrategia para workflows en producción |
+| Sistema de scoring | Prioriza qué workflow migrar primero |
+| Modo aprendizaje | Explica cada concepto con analogías de n8n |
+| Modo construcción | Genera todo el código sin explicaciones innecesarias |
+
+---
+
+## Estructura del repositorio
+
+```
+n8n-to-claude-skill/
+├── .claude-plugin/
+│   └── marketplace.json       ← Registro del plugin para Claude Code
+├── skills/
+│   └── n8n-to-claude/
+│       └── SKILL.md           ← La skill completa (v3.0)
+├── .gitignore
+└── README.md
+```
 
 ---
 
 ## Licencia
 
-MIT — Creado por [Angel Aparicio](https://github.com/angelapaia) · iAmasters
+MIT — Creado por [Angel Aparicio](https://github.com/angelapaia) · [iAmasters](https://www.skool.com/ia-masters)

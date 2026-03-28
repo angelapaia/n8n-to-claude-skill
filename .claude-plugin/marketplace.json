@@ -1,0 +1,22 @@
+{
+  "name": "n8n-to-claude",
+  "owner": {
+    "name": "Angel Aparicio",
+    "email": "angel@iamasters.com"
+  },
+  "metadata": {
+    "description": "Migra workflows de n8n/Make al ecosistema Claude Code",
+    "version": "3.0.0"
+  },
+  "plugins": [
+    {
+      "name": "n8n-to-claude",
+      "description": "Migra workflows de n8n/Make al ecosistema Claude Code. Analiza JSONs, mapea nodos, propone arquitectura e implementa. Usa cuando el usuario pegue un JSON de n8n, mencione migrar automatizaciones, o quiera entender como pasar de no-code a codigo.",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/n8n-to-claude"
+      ]
+    }
+  ]
+}
