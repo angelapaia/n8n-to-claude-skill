@@ -4,9 +4,9 @@ const fs = require("fs");
 const path = require("path");
 
 const SKILLS_DIR = path.join(process.cwd(), ".skills");
-const SKILL_FILE = path.join(SKILLS_DIR, "custom-skill.md");
+const SKILL_FILE = path.join(SKILLS_DIR, "n8n-migration-skill.md");
 
-const SKILL_TEMPLATE = `# [NOMBRE DE TU SKILL]
+const SKILL_TEMPLATE = `# N8N Migration Skill
 
 ## Contexto del proyecto
 [DESCRIBE EL CONTEXTO DEL PROYECTO]
@@ -32,9 +32,9 @@ if (!fs.existsSync(SKILLS_DIR)) {
 // 2. Crear el archivo de skill (sin sobrescribir si ya existe)
 if (!fs.existsSync(SKILL_FILE)) {
   fs.writeFileSync(SKILL_FILE, SKILL_TEMPLATE, "utf8");
-  console.log("📄 Archivo .skills/custom-skill.md creado.");
+  console.log("📄 Archivo .skills/n8n-migration-skill.md creado.");
 } else {
-  console.log("⚠️  El archivo .skills/custom-skill.md ya existe. No se sobreescribió.");
+  console.log("⚠️  El archivo .skills/n8n-migration-skill.md ya existe. No se sobreescribió.");
 }
 
-console.log("\n✅ ¡Listo! Abre .skills/custom-skill.md y personaliza tu skill.");
+console.log("\n✅ ¡Listo! Abre .skills/n8n-migration-skill.md y personaliza tu skill.");
