@@ -2,7 +2,7 @@
   "name": "n8n-to-claude",
   "owner": {
     "name": "Angel Aparicio",
-    "email": "angel@iamasters.com"
+    "email": "angel.aparicio@iamastersacademy.com"
   },
   "metadata": {
     "description": "Migra workflows de n8n/Make al ecosistema Claude Code",
