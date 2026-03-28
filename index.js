@@ -8,16 +8,40 @@ const SKILL_FILE = path.join(SKILLS_DIR, "n8n-migration-skill.md");
 
 const SKILL_TEMPLATE = `# N8N Migration Skill
 
+> **¿Qué es esto?**
+> Una "Agent Skill" es un archivo de instrucciones que le das a tu agente de IA (Claude, Cursor, Copilot...)
+> para que entienda tu proyecto desde el primer mensaje. Es como un briefing permanente:
+> le explicas de dónde vienes (n8n), a dónde vas (código), y cómo quieres que trabaje contigo.
+>
+> **Cómo usarlo:** Rellena las secciones de abajo con la información de TU proyecto.
+> Luego, en tu agente de IA, referencia este archivo o pega su contenido al inicio de cada conversación.
+
+---
+
 ## Contexto del proyecto
-[DESCRIBE EL CONTEXTO DEL PROYECTO]
+<!-- ¿Qué hace tu proyecto? ¿Qué workflows estás migrando de n8n? ¿Cuál es el objetivo final? -->
+[DESCRIBE AQUÍ TU PROYECTO Y QUÉ AUTOMATIZACIONES TIENES EN N8N]
+
+## Stack tecnológico de destino
+<!-- ¿A qué tecnología estás migrando? Ejemplo: Node.js + Supabase + Vercel, o Python + FastAPI, etc. -->
+[INDICA EL STACK AL QUE MIGRAS]
 
 ## Reglas de código
+<!-- ¿Cómo quieres que escriba el código tu agente? Ejemplo: sin comentarios innecesarios,
+     siempre TypeScript estricto, sin dependencias externas salvo las listadas, etc. -->
 [INSERTA TUS REGLAS DE CÓDIGO]
 
 ## Convenciones de arquitectura
+<!-- ¿Cómo organizas los archivos? Ejemplo: lógica de negocio en /lib, rutas en /app/api, etc. -->
 [INSERTA TUS CONVENCIONES DE ARQUITECTURA]
 
+## Workflows a migrar
+<!-- Lista los workflows de n8n que quieres migrar. Para cada uno indica qué hace y su prioridad. -->
+- [ ] [NOMBRE DEL WORKFLOW 1] — [QUÉ HACE]
+- [ ] [NOMBRE DEL WORKFLOW 2] — [QUÉ HACE]
+
 ## Ejemplos de uso
+<!-- Da ejemplos concretos de lo que el agente DEBE y NO DEBE hacer en este proyecto. -->
 [INSERTA EJEMPLOS DE USO]
 `;
 
