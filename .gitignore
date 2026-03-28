@@ -14,3 +14,4 @@ Thumbs.db
 # Variables de entorno
 .env
 .env.local
+.skills/
